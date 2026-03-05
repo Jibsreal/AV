@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AV Joki - Rank Up Your Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-brand">AV Joki</div>
+        <ul class="navbar-menu" id="navbarMenu">
+            <li><a href="#home" class="navbar-link">Home</a></li>
+            <li><a href="#services" class="navbar-link">Layanan</a></li>
+            <li><a href="#howto" class="navbar-link">Cara Order</a></li>
+            <li><a href="#contact" class="navbar-link">Kontak</a></li>
+        </ul>
+        <button class="navbar-toggle" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <div class="hero-badge">
+            ⚡ Terpercaya 1000+ Customer
+        </div>
+        <h1>Rank Up Your <span>Game</span></h1>
+        <p>Jasa joki game profesional dengan harga terjangkau. Proses cepat, aman, dan bergaransi.</p>
+        <a href="#services" class="cta">
+            Lihat Layanan
+            <span>→</span>
+        </a>
+    </section>
+
+    <!-- Features -->
+    <section class="section" id="features">
+        <div class="section-header">
+            <h2>Keunggulan Kami</h2>
+            <p class="section-subtitle">Mengapa memilih jasa joki kami?</p>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <div class="card-icon">⚡</div>
+                <h3 class="card-title">Proses Cepat</h3>
+                <p class="card-desc">Pengerjaan kilat dengan estimasi waktu yang jelas dan tepat.</p>
+                <div class="card-price">24 Jam</div>
+                <div class="card-unit">Support</div>
+            </div>
+            <div class="card">
+                <div class="card-icon">🛡️</div>
+                <h3 class="card-title">100% Aman</h3>
+                <p class="card-desc">Akun dijaga keamanannya, no cheat, no hack, manual play.</p>
+                <div class="card-price">Garansi</div>
+                <div class="card-unit">Refund</div>
+            </div>
+            <div class="card">
+                <div class="card-icon">💎</div>
+                <h3 class="card-title">Harga Bersahabat</h3>
+                <p class="card-desc">Mulai dari 4k per bintang. Murah tapi tidak murahan.</p>
+                <div class="card-price">4rb - 35rb</div>
+                <div class="card-unit">per bintang</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How To Order -->
+    <section class="section" id="howto">
+        <div class="section-header">
+            <h2>Cara Order</h2>
+            <p class="section-subtitle">4 langkah mudah untuk joki rank</p>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <div class="card-icon">1</div>
+                <h3 class="card-title">Pilih Layanan</h3>
+                <p class="card-desc">Klik game dan rank yang ingin dijoki sesuai kebutuhan.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">2</div>
+                <h3 class="card-title">Atur Jumlah</h3>
+                <p class="card-desc">Tentukan berapa bintang atau tier yang mau dinaikkan.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">3</div>
+                <h3 class="card-title">Checkout</h3>
+                <p class="card-desc">Pilih metode pembayaran yang tersedia dan lakukan transfer.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">4</div>
+                <h3 class="card-title">Proses Joki</h3>
+                <p class="card-desc">Kirim data akun dan tim kami akan segera memproses.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="section" id="services">
+        <div class="section-header">
+            <h2>Pilih Layanan</h2>
+            <p class="section-subtitle">Tersedia untuk berbagai game populer</p>
+        </div>
+        <div class="grid" id="servicesGrid"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <h3>AV Joki</h3>
+        <p>WhatsApp: <strong>081919000164</strong> | Instagram: <strong>@avjoki</strong></p>
+    </footer>
+
+    <!-- Item Modal -->
+    <div class="modal" id="itemModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-icon" id="modalIcon"></div>
+                <h2 class="modal-title" id="modalTitle"></h2>
+                <p id="modalDesc"></p>
+            </div>
+            <div class="quantity-control">
+                <button class="quantity-btn" onclick="changeQuantity(-1)">−</button>
+                <div class="quantity-display" id="modalQuantity">1</div>
+                <button class="quantity-btn" onclick="changeQuantity(1)">+</button>
+            </div>
+            <div class="modal-total">
+                <div class="modal-total-label">Total Harga</div>
+                <span id="modalTotal"></span>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal()">Batal</button>
+                <button class="btn btn-primary" onclick="addToCart()">Tambah ke Keranjang</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h3>🛒 Keranjang Belanja</h3>
+                <button class="cart-close" onclick="toggleCart()">×</button>
+            </div>
+            <div id="cartItems"></div>
+            <div class="cart-footer">
+                <div class="cart-total-row">
+                    <span class="cart-total-label">Total Pembayaran</span>
+                    <span id="cartTotal">Rp 0</span>
+                </div>
+                <button class="btn btn-primary" onclick="checkout()">Checkout Sekarang</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Toggle -->
+    <button class="cart-toggle" onclick="toggleCart()">
+        🛒
+        <span class="cart-count" id="cartCount">0</span>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
